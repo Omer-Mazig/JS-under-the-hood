@@ -35,17 +35,17 @@
 
 ////////////////////////////////////////////////////////////////////////////////////
 
-// // Macrotask: setTimeout
-// setTimeout(() => {
-//   console.log("setTimeout"); // This is a macrotask
-// }, 0);
+// Macrotask: setTimeout
+setTimeout(() => {
+  console.log("setTimeout"); // This is a macrotask
+}, 0);
 
-// // Microtask: Promise
-// Promise.resolve().then(() => {
-//   console.log("Promise.then"); // This is a microtask
-// });
+slowFunction();
 
-// slowFunction();
+// Microtask: Promise
+Promise.resolve().then(() => {
+  console.log("Promise.then"); // This is a microtask
+});
 
 ////////////////////////////////////////////////////////////////////////////////////
 
@@ -58,4 +58,8 @@ function slowFunction() {
   }
   console.timeEnd("time of slowFunction ");
   console.log("slowFunction end");
+}
+
+function onClick() {
+  console.log("click");
 }
